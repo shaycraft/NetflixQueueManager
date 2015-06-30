@@ -1,0 +1,22 @@
+{
+  "name": "netflixqueuemanager",
+  "version": "1.0.0",
+  "description": "Netflix queue manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaycraft/NetflixQueueManager.git"
+  },
+  "author": "Sam Haycraft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shaycraft/NetflixQueueManager/issues"
+  },
+  "homepage": "https://github.com/shaycraft/NetflixQueueManager#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
