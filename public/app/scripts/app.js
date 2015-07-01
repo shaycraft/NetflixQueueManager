@@ -3,7 +3,7 @@
         'nq.controllers',
         'nq.services']);
 
-    app.config(function($routeProvider){
+    app.config(function($routeProvider, $locationProvider){
         $routeProvider
             .when("/main", {
                 templateUrl: "app/views/main.html",
@@ -14,6 +14,7 @@
                 controller: "uploadCtrl"
             })
             .otherwise({redirectTo:"/main"});
+            $locationProvider.html5Mode(false);
     });
     angular.module('nq.controllers', []);
     angular.module('nq.services', []);

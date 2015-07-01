@@ -7,6 +7,10 @@
         </div>
     </div>
     <div class="row">
-        <p>{{testMessage}}</p>
+        <input class="button" id="file" ng-model='file' type="file"/>
+        <button class="button" ng-click="processUpload();">submit</button>
+    </div>
+    <div>
+        {{filecontents}}
     </div>
 </div>
