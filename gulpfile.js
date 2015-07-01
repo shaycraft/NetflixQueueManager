@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var flatten = require('gulp-flatten');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 gulp.task('bower', function() {
 	gulp.src('bower_components/**/*.min.js')
@@ -24,8 +25,23 @@ gulp.task('vendor', function() {
     .pipe(gulp.dest('public/app/dist/'));
 });
 
+gulp.task('scripts', function() {
+    return gulp.src('public/app/scripts/**/*.js')
+        .pipe(concat('netflixqueue.js'))
+        .pipe(gulp.dest('public/app/dist/'))
+        .pipe(rename('netflixqueue.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('public/app/dist/'));
+});
+
+gulp.task('css', function() {
+    return gulp.src('bower_components/bootstrap/dist/css/bootstrap.css')
+        .pipe(concat('site.css'))
+        .pipe(gulp.dest('public/app/dist'));
+});
+
 gulp.task('watch', function() {
     gulp.watch('public/app/scripts/**/*.js', ['scripts']);
 });
 
-gulp.task('default', ['bower', 'vendor', 'watch']);
+gulp.task('default', ['bower', 'vendor', 'scripts', 'css', 'watch']);
