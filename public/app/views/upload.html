@@ -10,7 +10,25 @@
         <input class="button" id="file" ng-model='file' type="file"/>
         <button class="button" ng-click="processUpload();">submit</button>
     </div>
+    <div ng-show="isLoaded">
+        <h1>There are {{nfqueue.length}} items in queue.</h1>
+    </div>
     <div>
-        {{filecontents}}
+        <table class="table table-striped table-hover table-responsive">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in nfqueue">
+                <td>
+                    {{item.id}}
+                </td>
+                <td>{{item.title}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>

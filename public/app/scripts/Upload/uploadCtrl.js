@@ -1,23 +1,18 @@
 'use strict';
 
 (function() {
-    var uploadController = function($scope) {
+    var uploadController = function($scope, uploader) {
+        $scope.isLoaded = false;
         $scope.processUpload = function(){
-            var f = document.getElementById('file').files[0],
-                r = new FileReader();
-            r.onloadend = function(e){
-                var data = e.target.result;
-                //send you binary data via $http or $resource or do anything else with it
-                console.log(data);
-                $scope.filecontents = data;
-                $scope.$apply();
-            };
-            $scope.filecontents = "File contents about to be set";
-            r.readAsBinaryString(f);
-            console.log(r);
+            uploader.fileData().then(function(data) {
+                var nfqueue = JSON.parse(data);
+                $scope.nfqueue = nfqueue.queue;
+                console.log($scope.nfqueue);
+                $scope.isLoaded = true;
+            });
         }
     }
 
     angular.module('nq.controllers')
-        .controller('uploadCtrl', ['$scope', uploadController]);
+        .controller('uploadCtrl', ['$scope', 'uploader', uploadController]);
 })();
