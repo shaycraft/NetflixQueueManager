@@ -1,7 +1,8 @@
 (function() {
     var app = angular.module('nq', ['ngRoute',
         'nq.controllers',
-        'nq.services']);
+        'nq.services',
+        'nq.directives']);
 
     app.config(function($routeProvider, $locationProvider){
         $routeProvider
@@ -14,8 +15,9 @@
                 controller: "uploadCtrl"
             })
             .otherwise({redirectTo:"/main"});
-            $locationProvider.html5Mode(false);
     });
+
+    angular.module('nq.directives', []);
     angular.module('nq.controllers', []);
     angular.module('nq.services', []);
 })();
