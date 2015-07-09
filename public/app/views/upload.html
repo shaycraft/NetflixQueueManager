@@ -6,6 +6,9 @@
             </div>
         </div>
     </div>
+    <div class="row" ng-show="isLoaded">
+        <button ng-click="saveToDb()">Save to db</button>
+    </div>
     <div class="row">
         <input class="button" id="file" ng-model='file' type="file"/>
         <button class="button" ng-click="processUpload();">submit</button>

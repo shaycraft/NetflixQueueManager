@@ -8,9 +8,8 @@
         $scope.processUpload = function(){
             uploader.fileData().then(function(data) {
                 var nfqueue = JSON.parse(data);
-                //$scope.nfqueue = nfqueue.queue;
-                //console.log($scope.nfqueue);
                 $scope.isLoaded = true;
+                $scope.queue = nfqueue.queue;
                 deferred.resolve(nfqueue.queue);
             });
         };
@@ -18,6 +17,14 @@
         $scope.getTableData = function() {
             return deferred.promise;
         };
+
+        $scope.saveToDb = function() {
+            //console.log($scope.queue);
+            nqrepo.save($scope.queue).then(function(data) {
+                console.log(data);
+                alert('Success!');
+            });
+        }
     };
 
     angular.module('nq.controllers')
