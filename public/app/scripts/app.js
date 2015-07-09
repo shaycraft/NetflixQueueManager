@@ -1,5 +1,6 @@
 (function() {
     var app = angular.module('nq', ['ngRoute',
+        'ngResource',
         'nq.controllers',
         'nq.services',
         'nq.directives']);

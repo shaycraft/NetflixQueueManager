@@ -15,6 +15,15 @@ var server = app.listen(3000, function () {
 
 });
 
+app.post('/api/v1/nq/', function(req, res) {
+   queue.create(req.body, function(err, obj) {
+      if (err) {
+          res.send(err);
+      }
+      res.send({ id: obj._id });
+   });
+});
+
 mongoose.connect('mongodb://localhost:27017/netflix');
 
 var queueSchema = new mongoose.Schema({ type: mongoose.Schema.Types.Mixed }, { strict: false });

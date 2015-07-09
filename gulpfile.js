@@ -18,6 +18,7 @@ gulp.task('vendor', function() {
     gulp.src([
         'public/app/assets/js/vendor/angular.min.js',
         'public/app/assets/js/vendor/angular-route.min.js',
+        'public/app/assets/js/vendor/angular-resource.min.js',
         'public/app/assets/js/vendor/jquery.min.js',
         'public/app/assets/js/vendor/bootstrap.js',
         'public/app/assets/js/vendor/jquery.dataTables.min.js'

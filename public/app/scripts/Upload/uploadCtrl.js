@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-    var uploadController = function($scope, $q, uploader) {
+    var uploadController = function($scope, $q, uploader, nqrepo) {
         var deferred = $q.defer();
 
         $scope.isLoaded = false;
@@ -21,5 +21,5 @@
     };
 
     angular.module('nq.controllers')
-        .controller('uploadCtrl', ['$scope', '$q', 'uploader', uploadController]);
+        .controller('uploadCtrl', ['$scope', '$q', 'uploader', 'nqrepo', uploadController]);
 })();

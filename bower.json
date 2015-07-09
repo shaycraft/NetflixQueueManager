@@ -18,6 +18,10 @@
     "datatables": "~1.10.7",
     "bootstrap": "~3.3.5",
     "toastr": "~2.1.1",
-    "angular-route": "~1.4.1"
+    "angular-route": "~1.4.1",
+    "angular-resource": "~1.4.2"
+  },
+  "resolutions": {
+    "angular": "~1.4.1"
   }
 }
